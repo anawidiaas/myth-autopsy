@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useMemo } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 
 const C = [
   { n:"Vietnam",     s:171,   b:2.6,  g:3760,  democ:0, o:5 },
