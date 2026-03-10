@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useMemo } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 
 /* ═══ DATA ══════════════════════════════════════════════════════════ */
 const C = [
@@ -115,83 +115,6 @@ const QS = [
     interpret:"Di negara-negara kaya, Commercial Determinants of Health — kepentingan industri asuransi, farmasi, dan real estate — secara aktif membentuk kebijakan kesehatan untuk melindungi akumulasi modal, bukan untuk memaksimalkan kesehatan populasi. Gig economy UK memaksa 5 juta pekerja memilih antara karantina dan makan. Di AS, 30 juta orang tidak terasuransi saat pandemi. GDP adalah angka agregat; distribusinya adalah pertanyaan politik.",
     indonesiaNote:"Indonesia: GDP rendah namun outcome moderat — sebagian karena kekayaan yang ada, meski terbatas, relatif merata diakses melalui Puskesmas dan JKN. Ini bukan alasan untuk puas; ini argumen untuk memperdalam Universal Health Coverage sebagai investasi ketahanan berbasis Political Economy of Health.",
     anchors:["Commercial Det. of Health · Kickbusters et al. (2023)","Wilkinson & Pickett — The Spirit Level","Rawls — Theory of Justice (distributive equity)"],
-    accent:"#0369a1", accentLight:"#f0f9ff",
-    xKey:"g", xLog:true, xLabel:"GDP per Kapita USD (log)",
-    ann:[{n:"UK",label:"UK·$42k",side:"right",dy:-24},{n:"Vietnam",label:"Vietnam·$3.8k",side:"left",dy:20},{n:"AS",label:"AS·$63k",side:"right",dy:20},{n:"Indonesia",label:"Indonesia·$4.3k",side:"left",dy:-22,isIDN:true}],
-  },
-];
-    question:"Mengapa uang triliunan dolar gagal membeli keselamatan nyawa?",
-    challenge:"Korelasi antara belanja kesehatan dan outcome pandemi dalam dataset ini bernilai negatif. Bukan nol — negatif. Uang adalah potensi, bukan eksekusi.",
-    pullStat:"64×",
-    pullText:"lebih besar pengeluaran AS dibanding Vietnam — selisih yang tidak menghasilkan perbedaan outcome yang diharapkan.",
-    premise:"Kita percaya bahwa semakin besar anggaran kesehatan per kapita, semakin kuat \"benteng\" sebuah negara melawan virus. Setiap dolar tambahan adalah investasi dalam keselamatan kolektif.",
-    dataNote:"AS menghabiskan $11.072/kapita namun mencatat outcome terburuk di antara negara maju (★). Vietnam dengan $171/kapita menang mutlak (★★★★★). Spearman r ≈ −0.12 — arahnya berlawanan dengan asumsi dasar kebijakan kesehatan.",
-    interpret:"Di bawah sistem yang timpang, anggaran besar hanya memperkuat fasilitas elit, bukan ketahanan akar rumput. Tanpa keadilan distribusi, uang adalah angka di atas kertas. Struktur sosial-politik mendahului kapasitas fiskal.",
-    indonesiaNote:"Indonesia: $112/kapita — terendah kedua di dataset — namun mencapai outcome moderat (★★★). Jaringan Puskesmas yang menjangkau desa, tradisi gotong royong sebagai penyangga informal, dan pengalaman kolektif dari bencana berulang membangun kapasitas adaptif yang tidak tercatat dalam neraca anggaran.",
-    accent:"#be123c", accentLight:"#fff1f2",
-    xKey:"s", xLog:true, xLabel:"Pengeluaran Kesehatan USD/kapita (log)",
-    ann:[{n:"AS",label:"AS·$11k",side:"right",dy:-18},{n:"Vietnam",label:"Vietnam·$171",side:"left",dy:16},{n:"Kuba",label:"Kuba·$971",side:"left",dy:-22},{n:"Indonesia",label:"Indonesia·$112",side:"right",dy:22,isIDN:true}],
-  },
-  {
-    id:"q2", num:"02",
-    verdict:"Kegagalan Teknokrasi",
-    verdictSub:"r ≈ +0.11, tidak signifikan",
-    question:"Apakah tumpukan tempat tidur rumah sakit cukup untuk menahan gelombang pandemi?",
-    challenge:"Rusia mewarisi 8,0 bed/1.000 jiwa dari sistem Semashko Soviet — salah satu tertinggi di dunia. Sputnik V selesai sebelum Pfizer. Excess mortality-nya melampaui 1 juta jiwa.",
-    pullStat:"50%",
-    pullText:"cakupan vaksinasi domestik Rusia, meski Sputnik V dikembangkan lebih awal dari Pfizer. Rakyat tidak percaya pada vaksin negara sendiri.",
-    premise:"Kesuksesan diukur dari rasio tempat tidur dan kecanggihan alat medis. Perkuat kapasitas sistem — tambah bed, tambah nakes, bangun RSUD. Kesiapan fisik adalah fondasi respons pandemi.",
-    dataNote:"Rusia: 8,0 bed/1.000 jiwa → ★★☆☆☆. Korea: 12,4 bed/1.000 jiwa → ★★★★★. Profil infrastruktur fisik yang hampir setara, outcome yang berbeda secara fundamental. Korelasi bed ratio vs outcome: r ≈ +0.11, jauh dari signifikan.",
-    interpret:"Tempat tidur RS tidak ada gunanya jika rakyat tidak percaya pada institusi yang mengelolanya. Infrastruktur fisik tanpa infrastruktur kepercayaan adalah kerangka kosong. Dekade oligarki pasca-Soviet menghancurkan modal sosial yang tidak bisa dibangun kembali dengan anggaran.",
-    indonesiaNote:"Indonesia: 1,0 bed/1.000 jiwa — terendah di dataset — namun outcome moderat. Kader Posyandu dan bidan desa membangun kepercayaan komunitas jauh sebelum pandemi datang. Inilah \"infrastruktur lunak\" yang tidak muncul dalam audit kapasitas fisik, tetapi sangat menentukan saat krisis.",
-    accent:"#c2410c", accentLight:"#fff7ed",
-    xKey:"b", xLog:false, xLabel:"Rasio Tempat Tidur per 1.000 Penduduk",
-    ann:[{n:"Rusia",label:"Rusia·8.0",side:"right",dy:-22},{n:"Korea",label:"Korea·12.4",side:"right",dy:20},{n:"Vietnam",label:"Vietnam·2.6",side:"left",dy:-22},{n:"Indonesia",label:"Indonesia·1.0",side:"left",dy:20,isIDN:true}],
-  },
-  {
-    id:"q3", num:"03",
-    verdict:"Narasi Kambing Hitam",
-    verdictSub:"β = −0.32, p > 0.05, tidak signifikan",
-    question:"Benarkah kemiskinan dan kepadatan penduduk adalah vonis mati saat pandemi?",
-    challenge:"Bangladesh dianggap bom waktu demografis: 1.300 jiwa/km², $88/kapita, median usia 28 tahun. Data menolak vonis itu. Variabel demografi adalah satu-satunya konstruk yang tidak signifikan dalam model SEM.",
-    pullStat:"β=−0.32",
-    pullText:"— satu-satunya konstruk yang gagal lolos uji signifikansi dalam model PLS-SEM Kim (2020). Profil demografis bukan prediktor resiliensi.",
-    premise:"Negara padat dan miskin seperti Bangladesh dianggap \"bom waktu\" yang pasti akan hancur lebur karena demografinya. Epidemiologi mengajarkan: identifikasi populasi rentan, prediksi beban, alokasikan sumber daya.",
-    dataNote:"Bangladesh (1.300 jiwa/km², $88/kapita): ★★★. Pakistan dan Nigeria — profil demografis \"paling rawan\" di dataset: ★★★. Keduanya melampaui beberapa negara Eropa yang secara demografis jauh lebih \"ideal\". Prediksi berbasis demografi gagal secara sistematis.",
-    interpret:"Kita sering menyalahkan kepadatan penduduk untuk menutupi kegagalan koordinasi pemerintah. Modal sosial komunitas — jaringan informal, kepemimpinan lokal, pengalaman kolektif — seringkali lebih kuat dari prediksi matematis populasi. Demografi adalah konteks, bukan takdir.",
-    indonesiaNote:"Jawa: 150 juta jiwa di 130.000 km², salah satu wilayah terpadat di dunia. Namun respons Yogyakarta berbeda drastis dari Surabaya. Variabel penentu bukan kepadatan — melainkan kualitas kepemimpinan lokal dan densitas modal sosial yang dibangun selama bertahun-tahun.",
-    accent:"#a16207", accentLight:"#fefce8",
-    xKey:"g", xLog:true, xLabel:"GDP per Kapita USD (log) — proksi kapasitas",
-    ann:[{n:"Bangladesh",label:"Bangladesh·$2.2k",side:"left",dy:-22},{n:"AS",label:"AS·$63k",side:"right",dy:-20},{n:"Vietnam",label:"Vietnam·$3.8k",side:"left",dy:20},{n:"Indonesia",label:"Indonesia·$4.3k",side:"right",dy:22,isIDN:true}],
-  },
-  {
-    id:"q4", num:"04",
-    verdict:"Kedaulatan vs Label",
-    verdictSub:"korelasi demokrasi vs outcome ≈ 0",
-    question:"Apakah demokrasi menjamin respons krisis yang lebih baik?",
-    challenge:"Vietnam (otokrasi satu partai) dan Taiwan (demokrasi muda) sama-sama di puncak. Inggris dan AS — dua demokrasi tertua dan terkaya — berada di dasar. Korelasi label sistem politik dengan outcome: mendekati nol.",
-    pullStat:"3/5",
-    pullText:"negara dengan outcome terbaik adalah non-demokrasi elektoral. Label tidak menentukan kapasitas.",
-    premise:"Demokrasi dengan transparansinya dianggap paling adaptif: akuntabilitas publik menghasilkan kebijakan yang responsif, kebebasan pers menghasilkan koreksi cepat, partisipasi sipil menghasilkan kepatuhan kolektif.",
-    dataNote:"Vietnam (satu partai): ★★★★★. Taiwan (demokrasi muda): ★★★★★. Korea Selatan (demokrasi dengan memori Gwangju 1980): ★★★★★. AS (demokrasi tertua): ★. UK (Westminster): ★★★. Distribusi ini tidak mendukung hipotesis linier apapun.",
-    interpret:"Yang bekerja bukan \"label\" sistemnya, melainkan kapasitas negara untuk mengorkestrasi tindakan kolektif dan tingkat kepercayaan publik terhadap institusi. Skandal Partygate menghancurkan legitimasi moral seruan kepatuhan di UK. Krisis tidak peduli pada ideologi, tetapi pada kompetensi.",
-    indonesiaNote:"Indonesia: demokrasi elektoral, namun outcome moderat karena desentralisasi yang tidak merata. Beberapa gubernur bergerak cepat (DIY, Jawa Barat), mayoritas lambat. Ini bukan argumen anti-demokrasi — melainkan argumen untuk membangun kapasitas pemerintah daerah yang nyata, bukan sekadar pelimpahan administratif.",
-    accent:"#6d28d9", accentLight:"#f5f3ff",
-    xKey:"democ", xLog:false, xLabel:"Status Sistem Politik", isJitter:true,
-    ann:[{n:"Vietnam",label:"Vietnam",side:"right",dy:-24},{n:"AS",label:"AS",side:"left",dy:20},{n:"Korea",label:"Korea",side:"right",dy:20}],
-  },
-  {
-    id:"q5", num:"05",
-    verdict:"Paradoks Kekayaan",
-    verdictSub:"r ≈ −0.08, tidak signifikan",
-    question:"Mengapa GDP tinggi justru menjadi beban saat menghadapi krisis kesehatan?",
-    challenge:"Ada korelasi negatif yang tidak nyaman: semakin kaya sebuah negara, semakin lambat adaptasinya terhadap realitas darurat di lapangan. Kekayaan nasional tidak mendistribusikan dirinya sendiri.",
-    pullStat:"11×",
-    pullText:"selisih GDP per kapita antara UK dan Vietnam. UK: ★★★. Vietnam: ★★★★★.",
-    premise:"Kekayaan nasional adalah penyangga terbaik untuk membeli logistik, teknologi, dan kapasitas respons cepat. GDP tinggi berarti pilihan yang lebih banyak dan margin kesalahan yang lebih lebar.",
-    dataNote:"r ≈ −0.08 (sedikit negatif, tidak signifikan). UK ($42k/kapita): ★★★. Italia ($33k): ★★★. AS ($63k): ★. Vietnam ($3,7k): ★★★★★. Gini coefficient — bukan GDP — secara konsisten lebih prediktif untuk resiliensi sistem dalam krisis.",
-    interpret:"Di negara kaya, ekonomi seringkali menyandera kebijakan kesehatan. Gig economy memaksa jutaan pekerja UK memilih antara karantina dan makan. Di AS, 30 juta orang tidak terasuransi saat pandemi. Kekayaan nasional tanpa jaminan sosial yang merata adalah ilusi keamanan kolektif.",
-    indonesiaNote:"Indonesia: GDP rendah namun outcome moderat — sebagian karena kekayaan yang ada, meski terbatas, relatif merata diakses melalui Puskesmas dan program JKN. Ini bukan alasan untuk puas; ini argumen untuk memperdalam jaminan sosial universal sebagai investasi ketahanan, bukan sekadar program kesejahteraan.",
     accent:"#0369a1", accentLight:"#f0f9ff",
     xKey:"g", xLog:true, xLabel:"GDP per Kapita USD (log)",
     ann:[{n:"UK",label:"UK·$42k",side:"right",dy:-24},{n:"Vietnam",label:"Vietnam·$3.8k",side:"left",dy:20},{n:"AS",label:"AS·$63k",side:"right",dy:20},{n:"Indonesia",label:"Indonesia·$4.3k",side:"left",dy:-22,isIDN:true}],
@@ -559,6 +482,7 @@ function GearSVG({cx,cy,r,col,broken}) {
 }
 
 function IllusDemocracy() {
+  return (
     <svg viewBox="0 0 680 238" style={{width:"100%",height:"auto",display:"block"}}>
       {/* ═ MESIN KIRI: macet ═ */}
       <rect x="34" y="36" width="258" height="158" rx="14"
@@ -569,7 +493,7 @@ function IllusDemocracy() {
       <text x="163" y="70" textAnchor="middle" fill="#a8a29e"
         fontSize="7.5" fontFamily="'IBM Plex Mono',monospace">AS · UK · Peru</text>
 
-      <GearSVG cx={163} cy={136} r={44} broken={true} col="#fca5a5"/>
+      {GearSVG({cx:163, cy:136, r:44, broken:true,  col:"#fca5a5"})}
 
       {/* fuel: ideology */}
       <rect x="50" y="86" width="60" height="24" rx="5"
@@ -591,7 +515,7 @@ function IllusDemocracy() {
       <text x="517" y="70" textAnchor="middle" fill="#a8a29e"
         fontSize="7.5" fontFamily="'IBM Plex Mono',monospace">Otokrasi + Demokrasi</text>
 
-      <GearSVG cx={517} cy={136} r={44} broken={false} col="#4ade80"/>
+      {GearSVG({cx:517, cy:136, r:44, broken:false, col:"#4ade80"})}
 
       {/* fuel: state capacity */}
       <rect x="404" y="86" width="82" height="24" rx="5"
@@ -1024,330 +948,6 @@ function StructuralModel() {
     </div>
   );
 }
-  return (
-    <svg viewBox="0 0 680 210" style={{width:"100%",height:"auto",display:"block"}}>
-      <rect width="680" height="210" fill="transparent"/>
-      {/* fulcrum + base */}
-      <polygon points="340,162 318,188 362,188" fill="#1c1917"/>
-      <rect x="298" y="186" width="84" height="7" rx="2" fill="#1c1917"/>
-      {/* beam tilted left down, right up */}
-      <line x1="148" y1="98" x2="340" y2="160" stroke="#1c1917" strokeWidth="2.5" strokeLinecap="round"/>
-      <line x1="340" y1="160" x2="532" y2="78" stroke="#1c1917" strokeWidth="2.5" strokeLinecap="round"/>
-      <circle cx="340" cy="160" r="6" fill="#1c1917"/>
-      {/* left pan: money pile */}
-      <ellipse cx="148" cy="100" rx="54" ry="10" fill="#44403c"/>
-      {coins.map(i=>(
-        <ellipse key={i} cx="148" cy={94-i*10} rx={46-i*2} ry="8"
-          fill={i%2===0?"#d97706":"#b45309"} stroke="#78350f" strokeWidth="0.5" opacity={0.9}/>
-      ))}
-      <text x="148" y="8" textAnchor="middle" fill="#78350f"
-        fontSize="13" fontWeight="700" fontFamily="'IBM Plex Mono',monospace">$11.072</text>
-      <text x="148" y="23" textAnchor="middle" fill="#a8a29e"
-        fontSize="8" fontFamily="'IBM Plex Mono',monospace">Amerika Serikat</text>
-      {/* left outcome: 1 star */}
-      <text x="148" y="190" textAnchor="middle" fill="#991b1b"
-        fontSize="12" fontFamily="Georgia">★☆☆☆☆</text>
-
-      {/* right pan: 2 small coins + 5 stars floating high */}
-      <ellipse cx="532" cy="80" rx="54" ry="10" fill="#44403c"/>
-      <ellipse cx="532" cy="74" rx="36" ry="8" fill="#d97706" stroke="#78350f" strokeWidth="0.5"/>
-      <ellipse cx="532" cy="66" rx="32" ry="7" fill="#b45309" stroke="#78350f" strokeWidth="0.5"/>
-      <text x="532" y="8" textAnchor="middle" fill="#166534"
-        fontSize="13" fontWeight="700" fontFamily="'IBM Plex Mono',monospace">$171</text>
-      <text x="532" y="23" textAnchor="middle" fill="#a8a29e"
-        fontSize="8" fontFamily="'IBM Plex Mono',monospace">Vietnam</text>
-      {/* stars floating */}
-      {[0,1,2,3,4].map(i=>(
-        <text key={i} x={512+i*10} y="44" fill={accent} fontSize="14" fontFamily="Georgia">★</text>
-      ))}
-      {/* right outcome annotation */}
-      <text x="532" y="190" textAnchor="middle" fill="#166534"
-        fontSize="12" fontFamily="Georgia">★★★★★</text>
-
-      {/* axis label */}
-      <text x="340" y="205" textAnchor="middle" fill="#c4b5a5"
-        fontSize="8" fontFamily="'IBM Plex Mono',monospace">
-        Lebih banyak uang tidak menjamin lebih banyak bintang
-      </text>
-    </svg>
-  );
-}
-
-function IllusInfra({accent}) {
-  // Gedung RS megah Soviet, tapi FONDASI RETAK = kepercayaan publik hancur
-  return (
-    <svg viewBox="0 0 680 220" style={{width:"100%",height:"auto",display:"block"}}>
-      <rect width="680" height="220" fill="transparent"/>
-
-      {/* ── FOUNDATION LAYER (trust) — retak ── */}
-      <rect x="160" y="170" width="360" height="30" rx="3"
-        fill="#e7e5e4" stroke="#d6d3d1" strokeWidth="1"/>
-      {/* retak-retak di fondasi */}
-      <path d="M195,170 L210,185 L200,200" fill="none" stroke="#9a3412" strokeWidth="1.5" opacity="0.7"/>
-      <path d="M280,170 L295,182 L285,200" fill="none" stroke="#9a3412" strokeWidth="1.5" opacity="0.7"/>
-      <path d="M390,172 L405,183 L420,200" fill="none" stroke="#9a3412" strokeWidth="1.5" opacity="0.7"/>
-      <path d="M460,170 L448,183 L455,200" fill="none" stroke="#9a3412" strokeWidth="1.2" opacity="0.6"/>
-      {/* label fondasi */}
-      <text x="340" y="190" textAnchor="middle" fill="#9a3412"
-        fontSize="8" fontWeight="600" fontFamily="'IBM Plex Mono',monospace" letterSpacing="1.5">
-        KEPERCAYAAN PUBLIK — RETAK
-      </text>
-
-      {/* ── BANGUNAN RS ── */}
-      {/* badan gedung */}
-      <rect x="190" y="72" width="300" height="99" fill="#f5f5f3" stroke="#c4b5a5" strokeWidth="1.5"/>
-      {/* kolom-kolom */}
-      {[205,243,281,319,357,395,433,471].map((x,i)=>(
-        <rect key={i} x={x} y="72" width="10" height="99"
-          fill="#e2e0dc" stroke="#d6d3d1" strokeWidth="0.5"/>
-      ))}
-      {/* entablature */}
-      <rect x="190" y="62" width="300" height="16" fill="#d6d3d1" stroke="#c4b5a5" strokeWidth="1"/>
-      {/* pediment */}
-      <polygon points="190,62 340,22 490,62" fill="#e7e5e4" stroke="#c4b5a5" strokeWidth="1.5"/>
-      <text x="340" y="48" textAnchor="middle" fill="#78716c"
-        fontSize="7.5" fontWeight="600" fontFamily="'IBM Plex Mono',monospace" letterSpacing="1.5">
-        ГОСУДАРСТВЕННАЯ БОЛЬНИЦА
-      </text>
-      {/* jendela — beberapa mati */}
-      {[215,265,315,365,415,455].map((x,i)=>(
-        <g key={i}>
-          <rect x={x} y="88" width="26" height="36" rx="1"
-            fill={i===4?"#44403c":i===0?"#e7e5e4":"#dbeafe"}
-            stroke="#c4b5a5" strokeWidth="0.8"/>
-          <line x1={x+13} y1="88" x2={x+13} y2="124" stroke="#c4b5a5" strokeWidth="0.5"/>
-          <line x1={x} y1="106" x2={x+26} y2="106" stroke="#c4b5a5" strokeWidth="0.5"/>
-          {i===0 && <line x1={x+4} y1="90" x2={x+18} y2="104"
-            stroke="#9a3412" strokeWidth="1.2" opacity="0.6"/>}
-        </g>
-      ))}
-      {/* palang merah */}
-      <rect x="334" y="26" width="6" height="18" rx="1" fill="#be123c"/>
-      <rect x="328" y="32" width="18" height="6" rx="1" fill="#be123c"/>
-      {/* pintu */}
-      <rect x="320" y="135" width="40" height="36" rx="2" fill="#44403c" stroke="#1c1917" strokeWidth="1"/>
-
-      {/* ── STATS SAMPING ── */}
-      <g>
-        <text x="100" y="95" textAnchor="middle" fill="#1c1917"
-          fontSize="20" fontWeight="900" fontFamily="'IBM Plex Mono',monospace">8.0</text>
-        <text x="100" y="111" textAnchor="middle" fill="#a8a29e"
-          fontSize="7.5" fontFamily="'IBM Plex Mono',monospace">bed/1.000</text>
-        <text x="100" y="125" textAnchor="middle" fill="#9a3412"
-          fontSize="10" fontFamily="Georgia">★★☆☆☆</text>
-        <text x="100" y="139" textAnchor="middle" fill="#9a3412"
-          fontSize="7.5" fontFamily="'IBM Plex Mono',monospace">Rusia</text>
-      </g>
-      <g>
-        <text x="580" y="95" textAnchor="middle" fill="#1c1917"
-          fontSize="20" fontWeight="900" fontFamily="'IBM Plex Mono',monospace">2.6</text>
-        <text x="580" y="111" textAnchor="middle" fill="#a8a29e"
-          fontSize="7.5" fontFamily="'IBM Plex Mono',monospace">bed/1.000</text>
-        <text x="580" y="125" textAnchor="middle" fill="#166534"
-          fontSize="10" fontFamily="Georgia">★★★★★</text>
-        <text x="580" y="139" textAnchor="middle" fill="#166534"
-          fontSize="7.5" fontFamily="'IBM Plex Mono',monospace">Vietnam</text>
-      </g>
-
-      <text x="340" y="214" textAnchor="middle" fill="#c4b5a5"
-        fontSize="8" fontFamily="'IBM Plex Mono',monospace">
-        Kapasitas yang tercatat tidak sama dengan kepercayaan yang berfungsi
-      </text>
-    </svg>
-  );
-}
-
-function IllusDemography({accent}) {
-  // Grid manusia — kepadatan tinggi tapi kolektif terhubung = perisai
-  const figs = [];
-  for(let r=0;r<6;r++) for(let c=0;c<14;c++) {
-    const x=170+c*26+(r%2)*13, y=32+r*24;
-    const shield=(c>=2&&c<=11)&&(r>=1&&r<=4);
-    figs.push({x,y,shield});
-  }
-  return (
-    <svg viewBox="0 0 680 200" style={{width:"100%",height:"auto",display:"block"}}>
-      <rect width="680" height="200" fill="transparent"/>
-      {/* perisai komunal */}
-      <path d="M340,14 L510,50 L510,118 Q510,158 340,178 Q170,158 170,118 L170,50 Z"
-        fill={accent} opacity="0.07"/>
-      <path d="M340,14 L510,50 L510,118 Q510,158 340,178 Q170,158 170,118 L170,50 Z"
-        fill="none" stroke={accent} strokeWidth="1.5" strokeDasharray="5 4" opacity="0.25"/>
-
-      {/* garis koneksi komunal */}
-      {figs.filter(f=>f.shield).slice(0,6).map((f,i)=>(
-        figs.filter(f=>f.shield).slice(i+1,i+3).map((f2,j)=>(
-          <line key={`${i}-${j}`} x1={f.x} y1={f.y} x2={f2.x} y2={f2.y}
-            stroke={accent} strokeWidth="0.4" opacity="0.2"/>
-        ))
-      ))}
-
-      {figs.map((f,i)=>(
-        <g key={i}>
-          <circle cx={f.x} cy={f.y-1} r={f.shield?4:3.5}
-            fill={f.shield?accent:"#d6d3d1"} opacity={f.shield?0.8:0.4}/>
-          <rect x={f.x-3} y={f.y+4} width={6} height={9} rx={1}
-            fill={f.shield?accent:"#d6d3d1"} opacity={f.shield?0.8:0.4}/>
-        </g>
-      ))}
-
-      {/* stats */}
-      <text x="75" y="78" textAnchor="middle" fill="#1c1917"
-        fontSize="18" fontWeight="900" fontFamily="'IBM Plex Mono',monospace">1.300</text>
-      <text x="75" y="94" textAnchor="middle" fill="#a8a29e"
-        fontSize="7.5" fontFamily="'IBM Plex Mono',monospace">jiwa/km²</text>
-      <text x="75" y="110" textAnchor="middle" fill="#a16207"
-        fontSize="7.5" fontFamily="'IBM Plex Mono',monospace">Bangladesh</text>
-      <text x="75" y="124" textAnchor="middle" fill="#92400e"
-        fontSize="10" fontFamily="Georgia">★★★☆☆</text>
-
-      <text x="605" y="78" textAnchor="middle" fill="#78716c"
-        fontSize="11" fontFamily="'IBM Plex Mono',monospace">β=−0.32</text>
-      <text x="605" y="94" textAnchor="middle" fill="#a8a29e"
-        fontSize="7.5" fontFamily="'IBM Plex Mono',monospace">demografi</text>
-      <text x="605" y="108" textAnchor="middle" fill="#c4b5a5"
-        fontSize="7.5" fontFamily="'IBM Plex Mono',monospace">p {">"} 0.05</text>
-      <text x="605" y="122" textAnchor="middle" fill="#c4b5a5"
-        fontSize="7.5" fontFamily="'IBM Plex Mono',monospace">tidak signifikan</text>
-
-      <text x="340" y="196" textAnchor="middle" fill="#c4b5a5"
-        fontSize="8" fontFamily="'IBM Plex Mono',monospace">
-        Kepadatan bukan hukuman — koneksi komunal adalah pelindung
-      </text>
-    </svg>
-  );
-}
-
-function IllusDemocracy({accent}) {
-  return (
-    <svg viewBox="0 0 680 210" style={{width:"100%",height:"auto",display:"block"}}>
-      <rect width="680" height="210" fill="transparent"/>
-      <defs>
-        <marker id="arL" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
-          <polygon points="0 0,7 2.5,0 5" fill="#44403c"/>
-        </marker>
-        <marker id="arR" markerWidth="7" markerHeight="5" refX="0" refY="2.5" orient="auto">
-          <polygon points="7 0,0 2.5,7 5" fill="#44403c"/>
-        </marker>
-      </defs>
-
-      {/* BOX NON-DEMOKRASI */}
-      <rect x="80" y="48" width="170" height="120" rx="6"
-        fill="#fafaf7" stroke="#1c1917" strokeWidth="2"/>
-      <rect x="80" y="48" width="170" height="26" rx="6" fill="#1c1917"/>
-      <rect x="80" y="64" width="170" height="10" fill="#1c1917"/>
-      <text x="165" y="65" textAnchor="middle" fill="white"
-        fontSize="8" fontWeight="700" fontFamily="'IBM Plex Mono',monospace" letterSpacing="1">
-        NON-DEMOKRASI
-      </text>
-      {/* outcomes inside */}
-      <text x="165" y="102" textAnchor="middle" fill="#166534"
-        fontSize="11" fontFamily="Georgia">★★★★★</text>
-      <text x="165" y="116" textAnchor="middle" fill="#a8a29e"
-        fontSize="8" fontFamily="'IBM Plex Mono',monospace">Vietnam</text>
-      <text x="165" y="136" textAnchor="middle" fill="#92400e"
-        fontSize="11" fontFamily="Georgia">★★★☆☆</text>
-      <text x="165" y="150" textAnchor="middle" fill="#a8a29e"
-        fontSize="8" fontFamily="'IBM Plex Mono',monospace">Kuba · Singapura</text>
-
-      {/* BOX DEMOKRASI */}
-      <rect x="430" y="48" width="170" height="120" rx="6"
-        fill="#fafaf7" stroke="#1c1917" strokeWidth="2"/>
-      <rect x="430" y="48" width="170" height="26" rx="6" fill="#1c1917"/>
-      <rect x="430" y="64" width="170" height="10" fill="#1c1917"/>
-      <text x="515" y="65" textAnchor="middle" fill="white"
-        fontSize="8" fontWeight="700" fontFamily="'IBM Plex Mono',monospace" letterSpacing="1">
-        DEMOKRASI
-      </text>
-      <text x="515" y="98" textAnchor="middle" fill="#166534"
-        fontSize="11" fontFamily="Georgia">★★★★★</text>
-      <text x="515" y="112" textAnchor="middle" fill="#a8a29e"
-        fontSize="8" fontFamily="'IBM Plex Mono',monospace">Korea · Taiwan</text>
-      <text x="515" y="132" textAnchor="middle" fill="#991b1b"
-        fontSize="11" fontFamily="Georgia">★☆☆☆☆</text>
-      <text x="515" y="146" textAnchor="middle" fill="#a8a29e"
-        fontSize="8" fontFamily="'IBM Plex Mono',monospace">AS · Peru</text>
-      <text x="515" y="160" textAnchor="middle" fill="#92400e"
-        fontSize="9" fontFamily="Georgia">★★★☆☆</text>
-
-      {/* center: YANG MEMBEDAKAN */}
-      <rect x="275" y="74" width="130" height="66" rx="8"
-        fill={accent+"15"} stroke={accent} strokeWidth="1.5"/>
-      <text x="340" y="96" textAnchor="middle" fill={accent}
-        fontSize="7.5" fontWeight="700" fontFamily="'IBM Plex Mono',monospace" letterSpacing="1">
-        YANG MEMBEDAKAN
-      </text>
-      <text x="340" y="112" textAnchor="middle" fill="#44403c"
-        fontSize="9.5" fontFamily="'IBM Plex Sans',sans-serif" fontWeight="600">State Capacity</text>
-      <text x="340" y="127" textAnchor="middle" fill="#44403c"
-        fontSize="9.5" fontFamily="'IBM Plex Sans',sans-serif" fontWeight="600">Social Trust</text>
-
-      {/* arrows */}
-      <path d="M250,107 C270,107 272,107 272,107" fill="none"
-        stroke="#44403c" strokeWidth="1.2" markerEnd="url(#arL)"/>
-      <path d="M408,107 C406,107 406,107 406,107" fill="none"
-        stroke="#44403c" strokeWidth="1.2" markerEnd="url(#arR)"/>
-
-      <text x="340" y="204" textAnchor="middle" fill="#c4b5a5"
-        fontSize="8" fontFamily="'IBM Plex Mono',monospace">
-        Label sistem tidak menentukan kapasitas bertindak kolektif
-      </text>
-    </svg>
-  );
-}
-
-function IllusWealth({accent}) {
-  // Tangga naik (GDP) tapi bintang outcome mengambang tidak mengikuti
-  const steps=[
-    {x:90, label:"$1–4k", countries:["Vietnam","Bangladesh"], stars:["★★★★★","★★★☆☆"], oc:["#166534","#92400e"]},
-    {x:196,label:"$8–12k",countries:["Kuba","Brazil"],         stars:["★★★★☆","★★☆☆☆"], oc:["#166534","#9a3412"]},
-    {x:302,label:"$18–20k",countries:["Latvia"],               stars:["★★☆☆☆"],          oc:["#9a3412"]},
-    {x:408,label:"$33–44k",countries:["Italia","UK"],          stars:["★★★☆☆","★★★☆☆"],  oc:["#92400e","#92400e"]},
-    {x:514,label:"$46–65k",countries:["Jerman","AS"],          stars:["★★★☆☆","★☆☆☆☆"],  oc:["#92400e","#991b1b"]},
-  ];
-  const heights=[30,50,70,90,110];
-  return (
-    <svg viewBox="0 0 680 210" style={{width:"100%",height:"auto",display:"block"}}>
-      <rect width="680" height="210" fill="transparent"/>
-      {steps.map((s,i)=>(
-        <g key={i}>
-          <rect x={s.x} y={178-heights[i]} width={82} height={heights[i]+2}
-            fill={i===0?"#f0fdf4":i===1?"#fefce8":i===2?"#fff7ed":"#fef2f2"}
-            stroke="#e7e5e4" strokeWidth="1"/>
-          <text x={s.x+41} y={188} textAnchor="middle"
-            fill="#a8a29e" fontSize="7.5" fontFamily="'IBM Plex Mono',monospace">{s.label}</text>
-          {s.countries.map((c,j)=>(
-            <g key={j}>
-              <text x={s.x+41} y={176-heights[i]-j*18} textAnchor="middle"
-                fill={s.oc[j]} fontSize="7.5" fontFamily="'IBM Plex Mono',monospace">{c}</text>
-              <text x={s.x+41} y={164-heights[i]-j*18} textAnchor="middle"
-                fill={s.oc[j]} fontSize="9" fontFamily="Georgia">{s.stars[j]}</text>
-            </g>
-          ))}
-        </g>
-      ))}
-      {/* trend garis outcome — tidak mengikuti tangga */}
-      <polyline points="131,120 237,124 343,98 449,92 555,84"
-        fill="none" stroke={accent} strokeWidth="2.5"
-        strokeLinecap="round" strokeLinejoin="round"/>
-      {/* garis GDP naik */}
-      <polyline points="90,178 172,148 278,128 384,108 490,88 640,68"
-        fill="none" stroke="#d97706" strokeWidth="1.5"
-        strokeDasharray="5 3" opacity="0.4"/>
-      {/* legend */}
-      <rect x="420" y="14" width="14" height="3" rx="1" fill="#d97706" opacity="0.5"/>
-      <text x="438" y="18" fill="#a8a29e" fontSize="8" fontFamily="'IBM Plex Mono',monospace">GDP naik</text>
-      <rect x="500" y="14" width="14" height="3" rx="1" fill={accent}/>
-      <text x="518" y="18" fill="#a8a29e" fontSize="8" fontFamily="'IBM Plex Mono',monospace">Outcome zig-zag</text>
-
-      <text x="340" y="204" textAnchor="middle" fill="#c4b5a5"
-        fontSize="8" fontFamily="'IBM Plex Mono',monospace">
-        Kekayaan tidak mendistribusikan dirinya sendiri
-      </text>
-    </svg>
-  );
-}
-
 /* ═══ SCATTER CHART ══════════════════════════════════════════════════ */
 function AChart({q}) {
   const W=640,H=270,P={t:20,r:60,b:52,l:52};
@@ -1742,7 +1342,7 @@ export default function App(){
               <R d={0.14}>
                 <div style={{margin:"0 0 28px",borderRadius:8,overflow:"hidden",
                   border:"1px solid #e7e5e4"}}>
-                  <Illus accent={q.accent}/>
+                  <Illus />
                 </div>
               </R>
 
